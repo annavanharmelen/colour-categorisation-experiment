@@ -11,24 +11,25 @@ from response import wait_for_key
 from numpy import mean
 from time import sleep
 
+
 def practice(settings):
-    # Show welcome 
+    # Show welcome
     show_text(
-                "Welcome to the experiment! You'll start by practising the task."
-                "\n\nPress SPACE to start the practice.",
-                settings["window"],
-            )
+        "Welcome to the experiment! You'll start by practising the task."
+        "\n\nPress SPACE to start the practice.",
+        settings["window"],
+    )
     settings["window"].flip()
     wait_for_key(["space"], settings["keyboard"])
 
     practice_performance = []
     practice = True
-    
+
     # Practice until done
     while practice:
         for i in range(5):
             # Generate random conditions
-            trial_colour = random.randint(1,360)
+            trial_colour = random.randint(1, 360)
             saturation = random.choice(["low", "medium", "high"])
 
             # Generate trial
@@ -49,14 +50,14 @@ def practice(settings):
 
         if "g" in keys:
             practice = False
-    
-    # Show countdown 
+
+    # Show countdown
     for i in range(4):
         show_text(
-                f"The experiment will start in {3-i}",
-                settings["window"],
-            )
+            f"The experiment will start in {3-i}",
+            settings["window"],
+        )
         settings["window"].flip()
-        
+
         if i != 3:
             sleep(1)

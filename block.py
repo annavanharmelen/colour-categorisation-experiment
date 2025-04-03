@@ -10,6 +10,7 @@ import random
 from trial import show_text
 from response import wait_for_key
 
+
 def create_block_list(n_blocks, n_trials, n_colours):
     if n_blocks % 3 != 0:
         raise Exception(
@@ -35,7 +36,7 @@ def create_block_list(n_blocks, n_trials, n_colours):
     # Generate random distribution of all colours over all block types
     type_colours = []
     for _, i in enumerate(block_types):
-        colours = list(range(1, n_colours+1, 1))
+        colours = list(range(1, n_colours + 1, 1))
         random.shuffle(colours)
         type_colours.append(
             [colours[i : i + n_trials] for i in range(0, len(colours), n_trials)]

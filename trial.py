@@ -36,7 +36,7 @@ def single_trial(target_colour_id, saturation, settings):
         colorSpace="hsv",
     )
 
-    # Run trial: get_response handles both the displaying and the response 
+    # Run trial: get_response handles both the displaying and the response
     response = get_response(target_colour, target_item, saturation, settings)
 
     # Give feedback

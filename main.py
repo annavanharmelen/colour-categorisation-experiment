@@ -74,7 +74,7 @@ def main():
         # Create a list of blocks, each containing a list of trials
         blocks = create_block_list(N_BLOCKS, TRIALS_PER_BLOCK, settings["n_colours"])
 
-        for block in (blocks[:2] if testing else blocks):
+        for block in blocks[:2] if testing else blocks:
             # Create temporary variable for saving block performance
             block_performance = []
 
@@ -112,10 +112,10 @@ def main():
             # Break after end of block, unless it's the last block.
             if blocks.index(block) + 1 == N_BLOCKS // 2:
                 long_break(
-                        N_BLOCKS,
-                        avg_score,
-                        settings,
-                    )
+                    N_BLOCKS,
+                    avg_score,
+                    settings,
+                )
             elif blocks.index(block) + 1 < N_BLOCKS:
                 while calibrated:
                     calibrated = block_break(

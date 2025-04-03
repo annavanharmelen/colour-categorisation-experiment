@@ -13,8 +13,9 @@ import numpy as np
 import random
 
 
-RADIUS_COLOUR_WHEEL = 3 #6
-INNER_RADIUS_COLOUR_WHEEL = 2.25 #4.5
+RADIUS_COLOUR_WHEEL = 3  # 6
+INNER_RADIUS_COLOUR_WHEEL = 2.25  # 4.5
+
 
 def create_colours(n_colours, saturation, just_one=False):
     if saturation not in ["low", "medium", "high"]:
@@ -24,8 +25,9 @@ def create_colours(n_colours, saturation, just_one=False):
 
     if just_one:
         return [just_one, saturation, 0.5]
-    
+
     return [[hue, saturation, 0.5] for hue in range(n_colours)]
+
 
 def create_colour_wheel(offset, saturation, settings):
     # Determine colour range
@@ -46,7 +48,10 @@ def create_colour_wheel(offset, saturation, settings):
                     inner_radius * np.cos(np.radians(i + offset)),
                     inner_radius * np.sin(np.radians(i + offset)),
                 ],
-                [radius * np.cos(np.radians(i + offset)), radius * np.sin(np.radians(i + offset))],
+                [
+                    radius * np.cos(np.radians(i + offset)),
+                    radius * np.sin(np.radians(i + offset)),
+                ],
                 [
                     radius * np.cos(np.radians(i + 1 + offset)),
                     radius * np.sin(np.radians(i + 1 + offset)),
@@ -157,7 +162,7 @@ def get_response(
     mouse = event.Mouse(visible=True, win=settings["window"])
     mouse.getPos()
     marker = make_marker(RADIUS_COLOUR_WHEEL, INNER_RADIUS_COLOUR_WHEEL, settings)
-    marker.colorSpace="hsv"
+    marker.colorSpace = "hsv"
     selected_colour = None
 
     # Wait until participant starts moving the mouse
